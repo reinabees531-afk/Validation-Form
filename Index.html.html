@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reddiffmail Validation</title>
+    <script type="text/javascript">
+        function validate() {
+            const form = document.myForm;
+
+            if (form.FullName.value.trim() === "") {
+                alert("Please provide your name!");
+                return false;
+            }
+
+            if (form.EMail.value.trim() === "") {
+                alert("Please provide your Email!");
+                return false;
+            }
+
+            if (form.password.value === "" || form.password.value.length < 6 || form.password.value.length > 12) {
+                alert("Password must be between 6 and 12 characters!");
+                return false;
+            }
+
+            if (form.retypepassword.value !== form.password.value) {
+                alert("Passwords do not match!");
+                return false;
+            }
+
+            if (form.alternateEMail.value.trim() === "") {
+                alert("Please provide your alternate Email!");
+                return false;
+            }
+
+            if (form.phonenumber.value.trim() === "" || form.phonenumber.value.length !== 10 || isNaN(form.phonenumber.value)) {
+                alert("Please enter a valid 10-digit mobile number!");
+                return false;
+            }
+
+            if (form.day.value === "Day" || form.month.value === "Month" || form.year.value === "Year") {
+                alert("Please select a valid Date of Birth!");
+                return false;
+            }
+
+            if (!form.gender.value) {
+                alert("Please select your gender!");
+                return false;
+            }
+
+            if (form.country.value === "") {
+                alert("Please select a country!");
+                return false;
+            }
+
+            if (form.city.value === "") {
+                alert("Please select a city!");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="myForm" action="success.html" onsubmit="return validate();">
+        <table border="5" cellpadding="5" cellspacing="5">
+            <tr>
+                <td>Full Name</td>
+                <td><input type="text" name="FullName" /></td>
+                <td>Enter your first name & last name<br>Eg. Sameer Bhagwat</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="EMail" /></td>
+                <td>@rediffmail.com</td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password" /></td>
+                <td>6-12 Characters Allowed</td>
+            </tr>
+            <tr>
+                <td>Retype Password</td>
+                <td><input type="password" name="retypepassword" /></td>
+                <td>6-12 Characters Allowed</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="button" value="Check Availability" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Alternate Email</td>
+                <td><input type="text" name="alternateEMail" /></td>
+                <td>If you forget your password, we will send it here</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="checkbox" /> Click if you don't have an alternate ID</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Mobile No.</td>
+                <td>
+                    <select>
+                        <option>+91</option>
+                        <option>+92</option>
+                        <option>+93</option>
+                    </select>
+                    <input type="text" name="phonenumber" placeholder="10-digit number" />
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Date of Birth</td>
+                <td>
+                    <select name="day">
+                        <option>Day</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select>
+                    <select name="month">
+                        <option>Month</option>
+                        <option>Jan</option>
+                        <option>Feb</option>
+                        <option>Mar</option>
+                        <option>Apr</option>
+                    </select>
+                    <select name="year">
+                        <option>Year</option>
+                        <option>2000</option>
+                        <option>2001</option>
+                        <option>2002</option>
+                        <option>2003</option>
+                    </select>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <input type="radio" name="gender" value="male" /> Male
+                    <input type="radio" name="gender" value="female" /> Female
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td>
+                    <select name="country">
+                        <option value="">--Select--</option>
+                        <option>India</option>
+                        <option>Australia</option>
+                        <option>America</option>
+                    </select>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td>
+                    <select name="city">
+                        <option value="">--Select--</option>
+                        <option>Mumbai</option>
+                        <option>Delhi</option>
+                        <option>Goa</option>
+                    </select>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Enter the text shown above:</td>
+                <td><input type="text" name="captcha" /></td>
+                <td><input type="submit" value="Create my account >>>" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
